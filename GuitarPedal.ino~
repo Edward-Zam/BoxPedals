@@ -1,0 +1,91 @@
+// Use ArduinoDSP for optimization
+// Credit to Kyle McDonald
+#include "dsp.h"
+
+// Create an array for the delay
+byte delayarray[2000];
+
+// Define variables
+int j;
+int fx;
+int mode;
+int step50;
+int step300;
+int step10000;
+int delayed;
+
+void setup()
+{
+	setupIO();
+	// Instantiate variables
+	j = 50;
+	step50 = 50;
+	step300 = 300;
+	step10000 = 1000;
+	delayed = 0;
+
+	// Analog input pins 
+	modeKnob = 2;
+	ammountKnob = 3;
+}
+
+void loop()
+{
+	// Grab knob voltage
+	readKnobs();
+
+	// **********************
+	// **** Effect Codes ****
+	// **********************
+
+	if(mode == 6)
+	{
+		
+	}
+
+	if(mode == 7)
+	{
+
+	}
+
+	if(mode == 9)
+	{
+
+	}
+
+	if(mode == 10)
+	{
+
+	}
+
+	if(mode == 11)
+	{
+
+	}
+
+	if(mode ==12)
+	{
+
+	}
+
+
+}
+
+void readKnobs()
+{
+	// Grab analog input value
+	// from mode knob and 
+	// determine which mode 
+	// it's in. Dividing by 75 
+	// will result in clear-cut 
+	// values.
+
+	mode = analogRead(modeKnob);
+	mode = mode/75;
+
+	// Read analog input value
+	// from ammount knob to 
+	// to adjust how much "effect"
+	// will be applied.
+	fx = analogRead(ammountKnob);
+}
